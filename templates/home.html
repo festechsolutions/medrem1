@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<!-- SITE TITLE -->
+	<title>Medicine Remainder</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<!-- STYLESHEET CSS FILES -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/nivo-lightbox.css">
+	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		
+body
+{
+	background: #ffffff;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+	position: relative;
+}
+
+html,body {
+	width: 100%;
+	overflow-x: hidden;
+}
+
+h1,h2,h3,h4 {
+	font-weight: bold;
+}
+
+.heading {
+	font-size: 60px;
+}
+.subheading {
+	font-size: 14px;
+	font-weight: bold;
+	padding-bottom: 60px;
+}
+.bold {
+	font-weight: bold;
+}
+
+p {
+	letter-spacing: 0px;
+	line-height: 28px;
+}
+
+#about,
+#team, #contact {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+
+#about .fa {
+	font-size: 28px;
+	min-width: 34px;
+}
+
+/* start navigation */
+.custom-navbar {
+    background: #ffffff;
+    margin-bottom: 0;
+}
+.custom-navbar .navbar-brand  {
+	color: #303030;
+	font-size: 40px;
+}
+.custom-navbar .navbar-brand .navbar-toggle {
+    background: #55acee;
+    padding: 4px 6px;
+    font-size: 16px;
+    color: #fff;
+}
+.custom-navbar .nav li a {
+    color: #505050;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    padding-right: 20px;
+    padding-left: 20px;
+	transition: all 0.3s ease-in-out;
+}
+.custom-navbar .nav li a:hover {
+  	background: #FFD321;
+  	transition: all 0.3s ease-in-out;
+}
+.custom-navbar .nav > li > a:focus {
+  	background-color: transparent;
+  	outline: none;
+}
+.custom-navbar .nav li.active > a {
+    background-color: #FFD321;
+}
+.custom-navbar .navbar-toggle {
+    border: none;
+    padding-top: 10px;
+}
+.custom-navbar .navbar-toggle .icon-bar {
+    background: #FFD321;
+    border-color: transparent;
+}
+@media(min-width:768px){
+    .custom-navbar {
+            background: #ffffff;
+            padding: 14px;
+            border-bottom: 0;
+            background: 0 0;
+         }
+    .custom-navbar.top-nav-collapse {
+            padding: 14px;
+            background: #fff;
+            border-bottom: 1px solid #eeeeee;
+        }
+}
+
+/* home section */
+#home {
+  background: url('../images/homebg.jpg') no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+#home hr {
+  border: 2px solid #404040;
+  width: 100px;
+}
+#home h3 {
+  letter-spacing: 2px;
+}
+#home .btn {
+  background: transparent;
+  border-radius: 0;
+  border: 3px solid #404040;
+  color: #404040;
+  font-weight: bold;
+  padding: 16px 42px;
+  margin-top: 40px;
+  transition: all 0.4s ease-in-out;
+}
+#home .btn:hover {
+  background: #404040;
+  color: #ffffff;
+}
+
+/* about section */
+#about .col-md-4 .fa {
+  background: #FFD321;
+  border-radius: 50%;
+  color: #ffffff;
+  font-size: 32px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+#about .col-md-6 {
+  padding-top: 60px;
+}
+#about .col-md-6 h3 {
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+#about .col-md-6 p {
+  padding-bottom: 30px;
+}
+#about span {
+  display: block;
+  padding-bottom: 6px;
+}
+#about .progress {
+  border-radius: 0;
+  box-shadow: none;
+  height: 6px;
+}
+#about .progress .progress-bar-primary {
+  background: #FFD321;
+}
+
+/* portfolio section */
+#portfolio {
+  padding-top: 100px;
+  background: #f9f9f9;
+  text-align: center;
+  }
+#portfolio .container {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#portfolio .col-md-4 {
+  padding: 0;
+  margin: 0;
+}
+#portfolio img {
+  width: 100%;
+  transition: all 0.4s ease-in-out;
+}
+#portfolio img:hover {
+  opacity: 0.6;
+}
+/* FILTER CSS */
+.filter-wrapper {
+    width: 100%;
+    margin: 40px 0 24px 0;
+    overflow: hidden;
+    text-align: left;
+}
+.filter-wrapper li {
+    display: inline-block;
+    margin: 4px;
+}
+.filter-wrapper li a {
+    color: #999999;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 17px;
+    display: block;
+    text-decoration: none;
+    transition: all 0.4s ease-in-out;
+}
+.filter-wrapper li .selected,
+.filter-wrapper li a:focus,
+.filter-wrapper li a:hover {
+    background: #FFD321;
+    color: #ffffff;
+    outline: none;
+  }
+
+/* ISOTOPE BOX CSS */
+.iso-box-section {
+    width: 100%;
+}
+.iso-box-wrapper {
+    width: 100%;
+    padding: 0;
+    clear: both;
+    position: relative;
+}
+.iso-box {
+    position: relative;
+    min-height: 50px;
+    float: left;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.iso-box > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.iso-box > a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.fluid-img {
+  width: 100%;
+  display: block;
+}
+
+/* team section */
+#team {
+  text-align: center;
+}
+#team h3 {
+  color: #202020;
+  line-height: 4px;
+}
+#team .team-des {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+/* contact section */
+#contact {
+  background: #f9f9f9;
+  text-align: center;
+}
+#contact .fa {
+  font-size: 40px;
+}
+#contact form {
+  padding-top: 80px;
+}
+#contact .form-control {
+  border-radius: 0;
+  box-shadow: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  transition: all 0.4s ease-in-out;
+}
+#contact .form-control:focus {
+  border: 2px solid #808080;
+}
+#contact input {
+  height: 50px;
+}
+#contact input[type="submit"] {
+  border: 2px solid #808080;
+  margin-top: 18px;
+  height: 54px;
+}
+#contact input[type="submit"]:hover {
+  background: #808080;
+  color: #ffffff;
+}
+#contact textarea {
+  height: 170px;
+}
+.contact-info-box h3 { font-size: 16px; }
+
+/* footer section */
+footer {
+  background: url('../images/footer-bg.jpg') no-repeat;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.social-icon {
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
+}
+.social-icon li {
+  list-style: none;
+  display: inline-block;
+  padding: 0;
+}
+.social-icon li a {
+  border-radius: 50%;
+  color: #303030;
+  font-size: 32px;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.4s ease-in-out;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.social-icon li a:hover {
+  background: #FFD321;
+}
+
+/* copyright section */
+#copyright {
+  background: #404040;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#copyright p {
+  padding-top: 20px;
+}
+#copyright a {
+	color: #fff;
+}
+#copyright a:hover {
+	color: #FFD321;
+	text-decoration: none;
+	transition: all 0.4s ease-in-out;
+}
+#copyright .fa {
+  background: #383838;
+  color: #ffffff;
+  font-size: 18px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  transition: all 0.4s ease-in-out;
+}
+#copyright .fa:hover {
+  background: #FFD321;
+  color: #000;
+}
+
+@media screen and (min-width: 992px) {
+  @-moz-document url-prefix() {
+    #portfolio .col-lg-4,
+    #portfolio .col-md-4 {
+      width: 33.333%;
+    }
+  }    
+}
+
+@media ( max-width: 980px ) {
+  .custom-navbar .navbar-brand {
+    font-size: 24px;
+  }
+  #about img {
+    padding-top: 40px;
+  }
+  #contact form {
+    padding-top: 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .contact-info-box { margin-bottom: 20px; }
+  .contact-info-box:last-child { margin-bottom: 0; }
+}
+
+@media (max-width: 450px) {
+  .heading {
+    font-size: 40px;
+  }
+  #about .col-md-4 .fa {
+    margin-top: 32px;
+  }
+  #contact h3 {
+    font-size: 16px;
+    padding-bottom: 40px;
+  }
+}
+/*
+ * Nivo Lightbox v1.1
+ * http://dev7studios.com/nivo-lightbox
+ *
+ * Copyright 2013, Dev7studios
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+.nivo-lightbox-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99998;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	visibility: hidden;
+	opacity: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.nivo-lightbox-overlay.nivo-lightbox-open {
+	visibility: visible;
+	opacity: 1;
+}
+.nivo-lightbox-wrap  {
+	position: absolute;
+	top: 10%;
+	bottom: 10%;
+	left: 10%;
+	right: 10%;
+}
+.nivo-lightbox-content {
+	width: 100%;
+	height: 100%;
+}
+.nivo-lightbox-title-wrap {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	z-index: 99999;
+	text-align: center;
+}
+.nivo-lightbox-nav { display: none; }
+.nivo-lightbox-prev {
+	position: absolute;
+	top: 50%;
+	left: 0;
+}
+.nivo-lightbox-next {
+	position: absolute;
+	top: 50%;
+	right: 0;
+}
+.nivo-lightbox-close {
+	position: absolute;
+	top: 2%;
+	right: 2%;
+}
+
+.nivo-lightbox-image { text-align: center; }
+.nivo-lightbox-image img {
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+}
+.nivo-lightbox-content iframe {
+	width: 100%;
+	height: 100%;
+}
+.nivo-lightbox-inline,
+.nivo-lightbox-ajax {
+	max-height: 100%;
+	overflow: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	/* https://bugzilla.mozilla.org/show_bug.cgi?id=308801 */
+}
+.nivo-lightbox-error {
+	display: table;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	text-shadow: 0 1px 1px #000;
+}
+.nivo-lightbox-error p {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/* Effects
+ **********************************************/
+.nivo-lightbox-notouch .nivo-lightbox-effect-fade,
+.nivo-lightbox-notouch .nivo-lightbox-effect-fadeScale,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideLeft,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideRight,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideUp,
+.nivo-lightbox-notouch .nivo-lightbox-effect-slideDown,
+.nivo-lightbox-notouch .nivo-lightbox-effect-fall {
+	-webkit-transition: all 0.2s ease-in-out;
+	   -moz-transition: all 0.2s ease-in-out;
+	    -ms-transition: all 0.2s ease-in-out;
+	     -o-transition: all 0.2s ease-in-out;
+	        transition: all 0.2s ease-in-out;
+}
+
+/* fadeScale */
+.nivo-lightbox-effect-fadeScale .nivo-lightbox-wrap {
+	-webkit-transition: all 0.3s;
+	   -moz-transition: all 0.3s;
+	    -ms-transition: all 0.3s;
+	     -o-transition: all 0.3s;
+	        transition: all 0.3s;
+	-webkit-transform: scale(0.7);
+	   -moz-transform: scale(0.7);
+	    -ms-transform: scale(0.7);
+	        transform: scale(0.7);
+}
+.nivo-lightbox-effect-fadeScale.nivo-lightbox-open .nivo-lightbox-wrap {
+	-webkit-transform: scale(1);
+	   -moz-transform: scale(1);
+	    -ms-transform: scale(1);
+	        transform: scale(1);
+}
+
+/* slideLeft / slideRight / slideUp / slideDown */
+.nivo-lightbox-effect-slideLeft .nivo-lightbox-wrap,
+.nivo-lightbox-effect-slideRight .nivo-lightbox-wrap,
+.nivo-lightbox-effect-slideUp .nivo-lightbox-wrap,
+.nivo-lightbox-effect-slideDown .nivo-lightbox-wrap {
+	-webkit-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	   -moz-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	    -ms-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	     -o-transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+	        transition: all 0.3s cubic-bezier(0.25, 0.5, 0.5, 0.9);
+}
+.nivo-lightbox-effect-slideLeft .nivo-lightbox-wrap {
+	-webkit-transform: translateX(-10%);
+	   -moz-transform: translateX(-10%);
+	    -ms-transform: translateX(-10%);
+	        transform: translateX(-10%);
+}
+.nivo-lightbox-effect-slideRight .nivo-lightbox-wrap {
+	-webkit-transform: translateX(10%);
+	   -moz-transform: translateX(10%);
+	    -ms-transform: translateX(10%);
+	        transform: translateX(10%);
+}
+.nivo-lightbox-effect-slideLeft.nivo-lightbox-open .nivo-lightbox-wrap,
+.nivo-lightbox-effect-slideRight.nivo-lightbox-open .nivo-lightbox-wrap {
+	-webkit-transform: translateX(0);
+	   -moz-transform: translateX(0);
+	    -ms-transform: translateX(0);
+	        transform: translateX(0);
+}
+.nivo-lightbox-effect-slideDown .nivo-lightbox-wrap {
+	-webkit-transform: translateY(-10%);
+	   -moz-transform: translateY(-10%);
+	    -ms-transform: translateY(-10%);
+	        transform: translateY(-10%);
+}
+.nivo-lightbox-effect-slideUp .nivo-lightbox-wrap {
+	-webkit-transform: translateY(10%);
+	   -moz-transform: translateY(10%);
+	    -ms-transform: translateY(10%);
+	        transform: translateY(10%);
+}
+.nivo-lightbox-effect-slideUp.nivo-lightbox-open .nivo-lightbox-wrap,
+.nivo-lightbox-effect-slideDown.nivo-lightbox-open .nivo-lightbox-wrap {
+	-webkit-transform: translateY(0);
+	   -moz-transform: translateY(0);
+	    -ms-transform: translateY(0);
+	        transform: translateY(0);
+}
+
+/* fall */
+.nivo-lightbox-body-effect-fall .nivo-lightbox-effect-fall {
+	-webkit-perspective: 1000px;
+	   -moz-perspective: 1000px;
+	        perspective: 1000px;
+}
+.nivo-lightbox-effect-fall .nivo-lightbox-wrap {
+	-webkit-transition: all 0.3s ease-out;
+	   -moz-transition: all 0.3s ease-out;
+	    -ms-transition: all 0.3s ease-out;
+	     -o-transition: all 0.3s ease-out;
+	        transition: all 0.3s ease-out;
+	-webkit-transform: translateZ(300px);
+	   -moz-transform: translateZ(300px);
+	    -ms-transform: translateZ(300px);
+	        transform: translateZ(300px);
+}
+.nivo-lightbox-effect-fall.nivo-lightbox-open .nivo-lightbox-wrap {
+	-webkit-transform: translateZ(0);
+	   -moz-transform: translateZ(0);
+	    -ms-transform: translateZ(0);
+	        transform: translateZ(0);
+}
+	</style>
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- navigation section -->
+<section class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand"><span class="bold">Get Your Dose</span></a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#home" class="smoothScroll">HOME</a></li>
+				<li><a href="#about" class="smoothScroll">ABOUT</a></li>
+				<li><a href="#portfolio" class="smoothScroll">DIRECTIONS OF USE</a></li>
+				<li><a href="#contact" class="smoothScroll">CONTACT US</a></li>
+			
+				{% if user.is_authenticated %}
+				<li><a  href="{% url 'logout' %}" class="smoothScroll">Logout</a></li>
+				<li><a href="{% url 'addmedicine' %}" class="smoothScroll">Add med</a></li>
+ 				<li><a href="{% url 'medicinelist' %}" class="smoothScroll">Your Meds</a></li>
+				{% else %}
+				<li><a class="smoothScroll" href="{% url 'signup' %}">Login</a></li>
+				<li><a class="smoothScroll" href="{% url 'signup' %}">signup</a></li>
+				{% endif %}
+
+			</ul>
+		</div>
+	</div>
+</section>
+
+<!-- home section -->
+<section id="home">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<hr>
+				<h3><span class="bold">GET YOUR DOSE</h3>
+				<h1 class="heading">This will remind you of when your medicines will expire !</h1>
+				<a href="#" class="smoothScroll btn btn-default">Get Started</a>
+			</div>
+		</div>
+	</div>		
+</section>
+
+<!-- about section -->
+<section id="about">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 text-center">
+				<h1 class="heading bold">ABOUT </h1>
+				<h2 class="subheading">This application will help you remember when your dose of medicines expire.</h2>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.6s">
+				<i class="fa fa-laptop"></i>
+					<h3>Remanider</h3>
+					<p>Reminds you of expiration of number of tablets for every dose you take</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
+				<i class="fa fa-laptop"></i>
+					<h3>Tracking</h3>
+					<p>Easy to check the list of your medicines added and take immediate action of buying new set of mediciens</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 wow fadeInUp" data-wow-delay="0.9s">
+				<i class="fa fa-laptop"></i>
+					<h3>Easy Access</h3>
+					<p>Provides ease to all kinds of users to register and login and use the application</p>
+			</div>
+			<hr>
+			
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- portfolio section -->
+<div id="portfolio">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<h1 class="heading bold">DIRECTIONS OF USE</h1>
+				<h4>1. Register in our website using your email and Phone number.</h4>
+				<h4>2. Login and Add a medicine of your prescription.</h4>
+				<h4>3. Fill out the details in the form displayed onto your screen and press submit.</h4>
+				<h4>4. Our application will automatically remind you of when your medicines will expire</h4>
+				
+			</div>
+		</div>
+	</div>
+</div>		
+
+<!-- contact section -->
+<section id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 text-center">
+				<h1 class="heading bold">CONTACT US</h1>
+				<h2 class="subheading">WE WOULD LOVE TO HELP YOU !</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="contact-info-box col-md-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="0.6s">
+				<i class="fa fa-phone"></i>
+					<h3>9230192019</h3>
+			</div>
+			<div class="contact-info-box col-md-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="0.8s">
+				<i class="fa fa-envelope-o"></i>
+					<h3>festechsolutions@gmail.com</h3>
+			</div>
+			<div class="contact-info-box col-md-4 col-sm-4 col-xs-6 wow fadeInUp" data-wow-delay="1s">
+				<i class="fa fa-map-marker"></i>
+					<h3>Hyderabad, Telangana</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12">
+				<form action="#" method="post">
+					<div class="col-md-6 col-sm-6">
+						<input name="name" type="text" class="form-control" id="name" placeholder="Name">
+				  	  	<input name="email" type="email" class="form-control" id="email" placeholder="Email">
+						<input name="subject" type="text" class="form-control" id="subject" placeholder="Subject">
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<textarea name="message" rows="7" class="form-control" id="message" placeholder="Message"></textarea>
+					</div>
+					<div class="col-md-offset-4 col-md-4 col-sm-offset-4 col-sm-6">
+						<input name="submit" type="submit" class="form-control" id="submit" value="SEND EMAIL">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- copyright section -->
+<section id="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-4 col-xs-3">
+				<a href="#home" class="smoothScroll fa fa-angle-up"></a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- JAVASCRIPT JS FILES -->	
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/isotope.js"></script>
+<script src="js/imagesloaded.min.js"></script>
+<script src="js/nivo-lightbox.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/custom.js"></script>
+
+</body>
+</html>
