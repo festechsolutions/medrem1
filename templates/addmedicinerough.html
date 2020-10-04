@@ -1,0 +1,704 @@
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Kumbh+Sans&display=swap" rel="stylesheet">
+  <style type="text/css">
+    html {
+      overflow: hidden;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: "Roboto", sans-serif;
+    }
+
+    header {
+      z-index: 1;
+      /* position: fixed; */
+      background: #505050;
+      padding: 20px 0;
+      width: calc(100% - 0%);
+      top: 0;
+      height: 4vh;
+      max-height: 30px;
+    }
+
+    .left_area h3 {
+      color: #000;
+      margin: 0;
+      text-transform: uppercase;
+      font-size: 22px;
+      font-weight: 900;
+
+    }
+
+    .left_area button {
+      margin-left: 20px;
+    }
+
+    .left_area span {
+      color: #FFD321;
+
+    }
+
+    .logout_btn {
+      padding: 5px;
+      background: white;
+      text-decoration: none;
+      float: right;
+      margin-top: -30px;
+      margin-right: 40px;
+      border-radius: 2px;
+      font-size: 15px;
+      font-weight: 600;
+      color: black;
+      transition: 0.5s;
+      transition-property: all;
+    }
+
+    .logout_btn:hover {
+      background: #FFD321;
+    }
+
+    .sidebar {
+      background: #505050;
+      width: 250px;
+      transition: width 0.2s ease-in;
+      /* transition-property: left; */
+      float: left;
+      height: 93vh;
+      /* overflow-y: auto; */
+    }
+
+    #sidebar2 {
+      /* display: none; */
+    }
+
+    .profile_info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .sidebar .profile_info .profile_image {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+      margin-bottom: 10px;
+    }
+
+    .sidebar .profile_info h4 {
+      color: #ccc;
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .sidebar a {
+      color: #fff;
+      display: block;
+      width: 100%;
+      line-height: 60px;
+      text-decoration: none;
+      padding-left: 40px;
+      box-sizing: border-box;
+      transition: 0.5s;
+      transition-property: all;
+    }
+
+    .sidebar a:hover {
+      background: #FFD321;
+    }
+
+    .sidebar i {
+      padding-right: 10px;
+    }
+
+    label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      font-size: 20px;
+      margin: 5px 0;
+      transition: all 0.150s;
+      /* transition-property: color; */
+    }
+
+    label #sidebar_btn:hover {
+      color: #FFD321;
+    }
+
+    #check:checked~.sidebar {
+      left: -185px;
+    }
+
+    #check:checked~.sidebar a span {
+      display: none;
+    }
+
+    #check:checked~.sidebar a {
+      font-size: 20px;
+      margin-left: 165px;
+      width: 100%;
+    }
+
+    .content {
+      width: (100% - 250px);
+      margin-top: 60px;
+      padding: 20px;
+      margin-left: 250px;
+      background: url(background.png) no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 100vh;
+      transition: 0.5s;
+    }
+
+    #check:checked~.content {
+      margin-left: 60px;
+    }
+
+    #check:checked~.sidebar .profile_info {
+      display: none;
+    }
+
+    #check {
+      display: none;
+    }
+
+    .mobile_nav {
+      display: none;
+    }
+
+    .content .card p {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* Responsive CSS */
+
+    @media screen and (max-width: 780px) {
+      .sidebar {
+        display: none;
+      }
+
+      #sidebar_btn {
+        display: none;
+      }
+
+      .content {
+        margin-left: 0;
+        margin-top: 0;
+        padding: 10px 20px;
+        transition: 0s;
+      }
+
+      #check:checked~.content {
+        margin-left: 0;
+      }
+
+      .mobile_nav {
+        display: block;
+        width: calc(100% - 0%);
+      }
+
+      .nav_bar {
+        background: #505050;
+        width: (100% - 0px);
+        margin-top: 70px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+      }
+
+      .nav_bar .mobile_profile_image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      .nav_bar .nav_btn {
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        transition: 0.5s;
+        transition-property: color;
+      }
+
+      .nav_bar .nav_btn:hover {
+        color: #FFD321;
+      }
+
+      .mobile_nav_items {
+        background: black;
+        display: none;
+      }
+
+      .mobile_nav_items a {
+        color: #fff;
+        display: block;
+        text-align: center;
+        letter-spacing: 1px;
+        line-height: 60px;
+        text-decoration: none;
+        box-sizing: border-box;
+        transition: 0.5s;
+        transition-property: all;
+      }
+
+      .mobile_nav_items a:hover {
+        background: #FFD321;
+      }
+
+      .mobile_nav_items i {
+        padding-right: 10px;
+      }
+
+      .active {
+        display: block;
+      }
+    }
+
+    /* ashish's code */
+    .firstH2 {
+      font-family: 'Abhaya Libre', serif;
+      color: #6e6e6e;
+    }
+
+    div.form {
+      justify-content: center;
+      display: block;
+      width: 82%;
+      margin: auto;
+      display: flex;
+      float: left;
+      flex-direction: column;
+      align-items: center;
+      transition: width 0.2s ease-in;
+    }
+
+    form {
+      /* margin: auto;
+      margin-right: 0; */
+      text-align: left;
+      width: 650px;
+      height: 100%;
+    }
+
+    #selectQuant {
+      width: 100%;
+      display: flex;
+      /* margin-top: 25px; */
+      flex-direction: column;
+      /* align-items: center; */
+    }
+
+    #selectQuant input {
+      width: 100px;
+      height: 17px;
+      margin: 5px 0;
+      margin-right: 40px;
+      cursor: pointer;
+      font-family: 'Kumbh Sans', sans-serif;
+      outline: none;
+    }
+
+    [id^=allTabs] {
+      /* width: 100%; */
+      /* max-width: 200px; */
+      display: flex;
+      /* flex-direction: row; */
+    }
+
+    [id^=allTabs] p {
+      margin: auto;
+      margin-left: 0;
+      margin-right: 10px;
+    }
+
+    #category {
+      width: 100%;
+      display: flex;
+      height: 40px;
+      align-items: center;
+    }
+
+    .same1 {
+      margin: 15px 0;
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .same1 select {
+      width: 70px;
+      /* margin-left: 10px; */
+      outline: none;
+      margin-right: 54px;
+      background-color: whitesmoke;
+      cursor: pointer;
+      border: 1px solid gray;
+      font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    #inputDiv2 {
+      /* width: 100px; */
+    }
+
+    .div12 {
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
+      margin: 30px 0;
+      height: 40px;
+    }
+
+    .div12 input {
+      /* margin-left: 20px; */
+      outline: none;
+      border: none;
+      font-size: 14px;
+      border: 2px solid white;
+      border-bottom: 2px solid grey;
+      transition: all 0.3s linear;
+      height: 11px;
+      margin-top: 11px;
+      text-align: center;
+      border-radius: 5px;
+      font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    #div3 {
+      display: flex;
+      align-items: center;
+    }
+
+    #div3 label {
+      /* width: 170px; */
+
+    }
+
+    #div3 input {
+      width: 220px;
+      font-size: 14px;
+      font-size: 14px;
+      cursor: pointer;
+      font-family: 'Kumbh Sans', sans-serif;
+      outline: none;
+    }
+
+    #div4 {}
+
+    #div5 {
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      /* margin: 10px 0; */
+    }
+
+    .btn {
+      cursor: pointer;
+      font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    .labels {
+      width: 90%;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+      font-family: 'Kumbh Sans', sans-serif;
+    }
+    .labels::{
+      src: url();
+    }
+    /* .labels::after {
+      content: "=>";
+      transition: all 0.5s;
+      display: block;
+      float: right;
+      margin-right: 20px;
+    } */
+  </style>
+
+</head>
+
+<body>
+
+  <!-- <input type="checkbox" id="check"> -->
+  <!--header area start-->
+  <header>
+    <label for="check">
+      <i class="fas fa-bars" id="sidebar_btn"></i>
+    </label>
+    <div class="left_area">
+      <button><a href="{% url 'home' %}">
+          <h3>Get Your <span> Dose</span></h3>
+        </a></button>
+    </div>
+    <div class="right_area">
+      <a href="{% url 'logout' %}" class="logout_btn">Logout</a>
+    </div>
+  </header>
+
+
+  <!--header area end-->
+  <!--mobile navigation bar start-->
+  <div class="mobile_nav">
+    <div class="nav_bar">
+      <!--<img src="1.png" class="mobile_profile_image" alt="">-->
+      <i class="fa fa-bars nav_btn"></i>
+    </div>
+    <div class="mobile_nav_items">
+      {% if user.is_authenticated %}
+      <a href="#"><i class="fas fa-cogs"></i><span>Directions of use</span></a>
+      <a href="{% url 'addmedicine' %}"><i class="fas fa-table"></i><span>Add Medicine</span></a>
+      <a href="{% url 'medicinelist' %}"><i class="fas fa-th"></i><span>Your Medicine List</span></a>
+      <a href="#"><i class="fas fa-desktop"></i><span>Profile</span></a>
+      <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+      <a href="#"><i class="fas fa-info-circle"></i><span>Directions of use</span></a>
+      <a href="#"><i class="fas fa-sliders-h"></i><span>Contact</span></a>
+
+      {% else %}
+      <h1 class="heading">Please Login/SignUp</h1>
+      <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+      <a class="nav-link" href="{% url 'login' %}">Login</a>
+      {% endif %}
+    </div>
+  </div>
+  <!--mobile navigation bar end-->
+  <!--sidebar start-->
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar" id="sidebar2">
+      <div class="profile_info">
+        <!--<img src="1.png" class="profile_image" alt="">-->
+        <h4>Name of Person</h4>
+      </div>
+      <a href="{% url 'addmedicine' %}"><i class="fas fa-table"></i><span>Add Medicine</span></a>
+      <a href="{% url 'medicinelist' %}"><i class="fas fa-th"></i><span>Your Medicine List</span></a>
+      <a href="{% url 'profile' %}"><i class="fas fa-sliders-h"></i><span>Profile</span></a>
+
+
+    </div>
+  </div>
+  <!--sidebar end-->
+
+  <div class="form" id="form">
+    <h2 class="firstH2">Add Medicines Here..</h2>
+    <form method="POST" action="{% url 'addmedicine' %}">
+      {% csrf_token %}
+      <!-- <br> -->
+      <div id="category" class="same1">
+        <label id="labeled1" class="labels">Category</label>
+        <select id="selec1" onfocus="Foc(this)" onblur="Blu(this)" name="ts">
+          <option value="" selected="selected">choose</option>
+          <option value="tablet">Tablet</option>
+          <option value="syrup">Syrup</option>
+        </select>
+
+      </div>
+      <!-- <br> -->
+      <div id="div1" class="div12">
+        <label id="labeled2" class="labels"> Med Name :</label>
+        <input id="inputDiv1" onfocus="Foc(this)" onblur="Blu(this)" type="text" name="medname" autocomplete="off" />
+      </div>
+      <div id="div2" class="div12">
+        <label id="labeled3" class="labels">
+          Number of Tablets :</label>
+        <input id="inputDiv2" onfocus="Foc(this)" onblur="Blu(this)" type="textbox" name="duration"
+          autocomplete="off" />
+      </div>
+      <!-- <br> -->
+      <div class="div12 same1" id="div2div3">
+        <label id="labeled4" class="labels">Number of Tablets used per day : </label>
+        <select id="selec2" onfocus="Foc(this)" onblur="Blu(this)" onchange="numOfTab(value)" name="times">
+          <option value="" selected="selected">choose</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+
+
+        <!-- <input type="number" name="times"  min="1" max="5" required> -->
+
+      </div>
+      <!-- <br /> -->
+      <div class="same1" id="div3">
+        <label id="labeled5" class="labels"> Starting date: </label>
+        <input id="dopeInp1" onfocus="Foc(this)" onblur="Blu(this)" type="date" name="start_time" required>
+      </div>
+      <div id="selectQuant"></div>
+      <!-- <br> -->
+      <div id="div4" class="same1">
+        <label id="labeled6" class="labels">Course:</label>
+        <select id="selec3" onfocus="Foc(this)" onblur="Blu(this)" name="cdd">
+          <option value="" selected="selected">choose</option>
+          <option value="Daily">Daily</option>
+          <option value="Alternate days">Alternate days</option>
+          <option value="Weekly Once">Weekly Once</option>
+          <option value="Weekly Twice">Weekly Twice</option>
+        </select>
+
+      </div>
+
+      <!-- <br> -->
+      <div id="div5" class="same1">
+        <input class="btn btn-primary" type="submit" value="Add Medicine" />
+      </div>
+
+    </form>
+  </div>
+
+  <!-- ashu's code -->
+  <script type="text/javascript">
+
+    function numOfTab(e) { //creating timings
+      var dad = document.getElementById("selectQuant");
+      dad.style.marginTop = "0px";
+      // console.log(dad.childNodes.length);
+      if (dad.childNodes.length > 0) {
+        while (dad.firstChild) {
+          dad.removeChild(dad.firstChild);
+        }
+      }
+
+      if (e != "") {
+        dad.style.marginTop = "25px";
+        for (var i = 0; i < e; i++) {
+          var allTabs = document.createElement("div");
+          allTabs.setAttribute("id", `allTabs${i + 2}`)
+          var parTab = document.createElement("label");
+          parTab.innerHTML = `Tab ${i + 1}: `;
+          parTab.setAttribute("class", "labels")
+          var time = document.createElement("input");
+          time.setAttribute("type", "time");
+          time.setAttribute("id", `dopeInp${i + 2}`);
+          time.setAttribute("onfocus", "Foc(this)");
+          time.setAttribute("onblur", "Blu(this)");
+          // id="dopeInp1" onfocus="Foc(this)" onblur="Blu(this)"
+
+          allTabs.appendChild(parTab);
+          allTabs.appendChild(time);
+          dad.appendChild(allTabs);
+
+          time.onchange = () => {
+            alert(time.value);
+          }
+        }
+      }
+    }
+
+    document.getElementById("sidebar_btn").onclick = () => { //sidebar scroll
+      console.log("soijfd");
+
+      if (document.getElementById("sidebar").style.width != "0px") {
+        document.getElementById("sidebar_btn").style.transform = "rotate(180deg)";
+        document.getElementById("sidebar").style.width = "0px";
+        document.getElementById("sidebar2").style.width = "0px";
+        document.getElementById("form").style.width = "100%";
+        document.getElementById("sidebar2").style.display = "none";
+      } else {
+        document.getElementById("sidebar").style.width = "250px";
+        document.getElementById("sidebar2").style.width = "250px";
+        document.getElementById("form").style.width = "80%";
+        document.getElementById("sidebar_btn").style.transform = "rotate(0deg)";
+
+        setTimeout(() => {
+          document.getElementById("sidebar2").style.display = "block";
+        }, 180);
+      }
+
+    }
+
+    function Foc(e) {//color changing on focus
+      console.log(e);
+      // var eachLabel = document.getElementById(e.closest("div").id).getElementsByTagName("label")[0].id;
+      // document.getElementById(eachLabel).after(content="=>")
+      if (e.id.includes("selec") || e.id.includes("dopeInp")) { //for select and data and time input
+        document.getElementById(e.id).style.borderBottomColor = "#5abadb";
+        document.getElementById(e.id).style.borderLeftColor = "#5abadb";
+        document.getElementById(e.id).style.borderRightColor = "#5abadb";
+        document.getElementById(e.id).style.borderWidth = "2px";
+      } else {  //for normal input
+        document.getElementById(e.id).style.height = "0px";
+        document.getElementById(e.id).style.borderBottomColor = "#5abadb";
+        document.getElementById(e.id).style.borderLeftColor = "#5abadb";
+        document.getElementById(e.id).style.borderRightColor = "#5abadb";
+        document.getElementById(e.id).style.height = "22px";
+        document.getElementById(e.id).style.marginTop = "0px";
+      }
+      setTimeout(() => {
+        document.getElementById(e.id).style.borderTopColor = "#5abadb";
+        document.getElementById(e.closest('div').id).style.color = "rgb(16 ,174, 228)";
+        document.getElementById(e.closest('div').id).style.letterSpacing = "1px";
+        document.getElementById(e.closest('div').id).style.fontSize = "18px";
+      }, 250);
+
+    }
+    function Blu(e) { //color changing on Blur
+      // var eachLabel = document.getElementById(e.closest("div").id).getElementsByTagName("label")[0].id;
+      // document.getElementById(eachLabel).after()
+      if (e.id.includes("selec") || e.id.includes("dopeInp")) {
+        document.getElementById(e.id).style.borderColor = "grey";
+        document.getElementById(e.closest('div').id).style.color = "black";
+        document.getElementById(e.closest('div').id).style.letterSpacing = "0.5px";
+        document.getElementById(e.closest('div').id).style.fontSize = "16px";
+        document.getElementById(e.id).style.borderWidth = "1px";
+      } else {
+        document.getElementById(e.id).style.borderColor = "transparent";
+        document.getElementById(e.id).style.borderBottomColor = "grey";
+        document.getElementById(e.id).style.height = "15px";
+        document.getElementById(e.id).style.marginTop = "7px";
+        document.getElementById(e.closest('div').id).style.color = "black";
+        document.getElementById(e.closest('div').id).style.letterSpacing = "0.5px";
+        document.getElementById(e.closest('div').id).style.fontSize = "16px";
+
+      }
+    }
+    // function selecBlur(this) { }
+
+    function selec(e) {
+      console.log(e);
+    }
+
+    $(document).ready(function () {
+      $('.nav_btn').click(function () {
+        $('.mobile_nav_items').toggleClass('active');
+      });
+    });
+  </script>
+
+
+
+</body>
+
+</html>
+
+{% endblock %}

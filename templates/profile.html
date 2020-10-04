@@ -1,0 +1,469 @@
+{% block content %}
+
+{% if error %}
+{{ error }}
+<br />
+<br />
+{% endif %}
+<!DOCTYPE html>
+
+</head>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Profile form</title>
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
+
+  <style type="text/css">
+    body{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+  }
+  
+  header{
+    z-index: 1;
+    position: fixed;
+    background: #505050;
+    padding: 20px;
+    width: calc(100% - 0%);
+    top: 0;
+    height: 30px;
+  }
+  
+  .left_area h3{
+    color: #000;
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 900;
+
+  }
+  
+  .left_area span{
+    color: #FFD321;
+
+  }
+  
+  .logout_btn{
+    padding: 5px;
+    background: white;
+    text-decoration: none;
+    float: right;
+    margin-top: -30px;
+    margin-right: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .logout_btn:hover{
+    background: #FFD321;
+  }
+  
+  .sidebar{
+    z-index: 1;
+    top: 0;
+    background:#505050;
+    margin-top: 70px;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: calc(100% - 9%);
+    transition: 0.5s;
+    transition-property: left;
+    overflow-y: auto;
+  }
+  
+  .profile_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sidebar .profile_info .profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar .profile_info h4{
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar a{
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 60px;
+    text-decoration: none;
+    padding-left: 40px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .sidebar a:hover{
+    background: #FFD321;
+  }
+  
+  .sidebar i{
+    padding-right: 10px;
+  }
+  
+  label #sidebar_btn{
+    z-index: 1;
+    color: #fff;
+    position: fixed;
+    cursor: pointer;
+    left: 300px;
+    font-size: 20px;
+    margin: 5px 0;
+    transition: 0.5s;
+    transition-property: color;
+  }
+  
+  label #sidebar_btn:hover{
+    color: #FFD321;
+  }
+  
+  #check:checked ~ .sidebar{
+    left: -185px;
+  }
+  
+  #check:checked ~ .sidebar a span{
+    display: none;
+  }
+  
+  #check:checked ~ .sidebar a{
+    font-size: 20px;
+    margin-left: 165px;
+    width: 100%;
+  }
+  
+  .content{
+    width: (100% - 250px);
+    margin-top: 60px;
+    padding: 20px;
+    margin-left: 250px;
+    background: url(background.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+  }
+  
+  #check:checked ~ .content{
+    margin-left: 60px;
+  }
+  
+  #check:checked ~ .sidebar .profile_info{
+    display: none;
+  }
+  
+  #check{
+    display: none;
+  }
+  
+  .mobile_nav{
+    display: none;
+  }
+  
+  .content .card p{
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    opacity: 0.8;
+  }
+  
+  /* Responsive CSS */
+  
+  @media screen and (max-width: 780px){
+    .sidebar{
+      display: none;
+    }
+  
+    #sidebar_btn{
+      display: none;
+    }
+  
+    .content{
+      margin-left: 0;
+      margin-top: 0;
+      padding: 10px 20px;
+      transition: 0s;
+    }
+  
+    #check:checked ~ .content{
+      margin-left: 0;
+    }
+  
+    .mobile_nav{
+      display: block;
+      width: calc(100% - 0%);
+    }
+  
+    .nav_bar{
+      background: #505050;
+      width: (100% - 0px);
+      margin-top: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+  
+    .nav_bar .mobile_profile_image{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  
+    .nav_bar .nav_btn{
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      transition: 0.5s;
+      transition-property: color;
+    }
+  
+    .nav_bar .nav_btn:hover{
+      color: #FFD321;
+    }
+  
+    .mobile_nav_items{
+      background: black;
+      display: none;
+    }
+  
+    .mobile_nav_items a{
+      color: #fff;
+      display: block;
+      text-align: center;
+      letter-spacing: 1px;
+      line-height: 60px;
+      text-decoration: none;
+      box-sizing: border-box;
+      transition: 0.5s;
+      transition-property: background;
+    }
+  
+    .mobile_nav_items a:hover{
+      background: #FFD321;
+    }
+  
+    .mobile_nav_items i{
+      padding-right: 10px;
+    }
+  
+    .active{
+      display: block;
+    }
+  }
+  div.form
+{
+    display: block;
+    text-align: center;
+}
+form
+{
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+body{
+margin:0;
+padding: 0;
+}
+
+.contact-form{
+width: 50%;
+max-width: 600px;
+background: #f1f1f1;
+position:absolute;
+top: 70%;
+left: 50%;
+transform: translate(-50%, -50%);
+padding: 30px 40px;
+box-sizing: border-box;
+border-radius: 8px;
+text-align: center;
+}
+.contact-form h1{
+margin-top: 0;
+font-weight: 200;
+}
+.textb{
+border: 1px solid gray;
+margin: 4px 0;
+padding: 12px 18px;
+border-radius: 8px;
+}
+.textb label{
+display: block;
+text-align: left;
+color: #333;
+text-transform: uppercase;
+font-size: 14px;
+}
+.textb input{
+width: 100%;
+border: none;
+background: none;
+outline: none;
+font-size: 18px;
+margin-top: 6px;
+}
+.btn{
+display: block;
+background: #FFD321;
+padding: 14px 0;
+color: black;
+text-transform: uppercase;
+cursor: pointer;
+margin-top: 8px;
+width: 100%;
+}
+
+
+                             
+  </style>
+
+  </head>
+  <body>
+
+    <input type="checkbox" id="check">
+    <!--header area start-->
+    <header>
+      <label for="check">
+        <i class="fas fa-bars" id="sidebar_btn"></i>
+      </label>
+      <div class="left_area">
+        <button><a href="{% url 'home' %}"><h3>Get Your <span> Dose</span></h3>
+      </a></button>
+      </div>
+      <div class="right_area">
+        <a href="{% url 'logout' %}" class="logout_btn">Logout</a>
+      </div>
+    </header>
+    <br/>
+    <br/>
+    <br/>
+    <!--header area end-->
+    <!--mobile navigation bar start-->
+    <div class="mobile_nav">
+      <div class="nav_bar">
+        <!--<img src="1.png" class="mobile_profile_image" alt="">-->
+        <i class="fa fa-bars nav_btn"></i>
+      </div>
+      <div class="mobile_nav_items">
+          {% if user.is_authenticated %}
+        <a href="#"><i class="fas fa-cogs"></i><span>Directions of use</span></a>
+        <a href="{% url 'addmedicine' %}"><i class="fas fa-table"></i><span>Add Medicine</span></a>
+        <a href="{% url 'medicinelist' %}"><i class="fas fa-th"></i><span>Your Medicine List</span></a>
+        <a href="#"><i class="fas fa-info-circle"></i><span>Profile</span></a>
+        <a href="#"><i class="fas fa-info-circle"></i><span>About</span></a>
+        <a href="#"><i class="fas fa-info-circle"></i><span>Directions of use</span></a>
+        <a href="#"><i class="fas fa-sliders-h"></i><span>Contact</span></a>
+        
+         {% else %}
+ <h1 class="heading">Please Login/SignUp</h1>
+<a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+<a class="nav-link" href="{% url 'login' %}">Login</a>
+{% endif %}
+      </div>
+    </div>
+    <br/>
+    <br/>
+    <!--mobile navigation bar end-->
+    <!--sidebar start-->
+    <div class="sidebar">
+      <div class="profile_info">
+        <!--<img src="1.png" class="profile_image" alt="">-->
+        <h4>Name of Person</h4>
+      </div>
+      <a href="{% url 'addmedicine' %}"><i class="fas fa-table"></i><span>Add Medicine</span></a>
+      <a href="{% url 'medicinelist' %}"><i class="fas fa-th"></i><span>Your Medicine List</span></a>
+      <a href="{% url 'profile' %}"><i class="fas fa-sliders-h"></i><span>Profile</span></a>
+     
+     
+    </div>
+    <!--sidebar end-->
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<main>
+<br/>
+<div class="contact-form">
+	<br/>
+<h1>PROFILE</h1>
+<div class="textb">
+<label>Full Name:</label>
+<input type="text" name="full_name" placeholder="Enter your name">
+</div>
+
+<div class="textb">
+<label>Email:</label>
+<input type="email" name="get_email" placeholder="Enter your e-mail">
+</div>
+
+<div class="textb">
+<label>Phone Number:</label>
+<input type="text" name="phone_number" placeholder="Enter your phone Number">
+</div>
+
+<div class="textb">
+<label>Date of Birth:</label>
+<input type="text" name="date_of_birth" placeholder="Enter your date of birth">
+</div>
+
+<div class="textb">
+<label>Age:</label>
+<input type="text" name="get_age" placeholder="Enter your age">
+</div>
+
+<div class="textb">
+<label>Tablets:</label>
+<input type="text" name="get_tablet"placeholder="Enter number of tabletes you use per day">
+</div>
+
+<div class="textb">
+<label>Prescribed Doctor:</label>
+<input type="text" name="doc_name"placeholder="Enter name of your Doctor">
+</div>
+
+<a class="btn">Submit</a>
+
+</div>
+</main>
+<script type="text/javascript">
+    $(document).ready(function(){
+      $('.nav_btn').click(function(){
+        $('.mobile_nav_items').toggleClass('active');
+      });
+    });
+    </script>
+
+
+</body>
+</html>
+{% endblock %}

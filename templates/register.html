@@ -274,7 +274,8 @@ footer a {
 			<input type="text" placeholder="Name" name="username" required/>
 			<input type="password" placeholder="Password" name="password1" required />
 			<input type="password" placeholder="Confirm Password" name="password2" required/>
-			<button>SignUp</button>
+			<!-- <button>SignUp</button> -->
+		 <button onclick="sweetalert()"> Sign Up</button> 
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
@@ -315,6 +316,25 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove('right-panel-active');
 });
 
+</script>
+ <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script>
+  function sweetalertclick(){
+    swal({
+title: "You have successfully Logged in!",
+text: " Relax and let the app remind you !",
+icon: "success",
+});
+}
+</script>
+<script>
+  function sweetalert(){
+    swal({
+  title: "Registration Successful!!",
+  text: "Thanks for choosing us",
+  icon: "success",
+});
+}
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

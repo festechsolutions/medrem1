@@ -670,9 +670,11 @@ footer {
 				<li><a href="#contact" class="smoothScroll">CONTACT US</a></li>
 			
 				{% if user.is_authenticated %}
-				<li><a  href="{% url 'logout' %}" class="smoothScroll">Logout</a></li>
+				
 				<li><a href="{% url 'addmedicine' %}" class="smoothScroll">Add med</a></li>
  				<li><a href="{% url 'medicinelist' %}" class="smoothScroll">Your Meds</a></li>
+        <li><a href="{% url 'profile' %}" class="smoothScroll">Profile</a></li>
+        <li><a  href="{% url 'logout' %}" class="smoothScroll">Logout</a></li>
 				{% else %}
 				<li><a class="smoothScroll" href="{% url 'signup' %}">Login</a></li>
 				<li><a class="smoothScroll" href="{% url 'signup' %}">signup</a></li>
@@ -728,20 +730,55 @@ footer {
 </section>
 
 <!-- portfolio section -->
+<!-- portfolio section-->
 <div id="portfolio">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 col-sm-12">
-				<h1 class="heading bold">DIRECTIONS OF USE</h1>
-				<h4>1. Register in our website using your email and Phone number.</h4>
-				<h4>2. Login and Add a medicine of your prescription.</h4>
-				<h4>3. Fill out the details in the form displayed onto your screen and press submit.</h4>
-				<h4>4. Our application will automatically remind you of when your medicines will expire</h4>
-				
-			</div>
-		</div>
-	</div>
-</div>		
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <h1 class="heading bold">DIRECTIONS OF USE</h1>
+                <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+                
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <h4>Register in our website using your email and Phone number.<br><span></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>Login and Add a medicine of your prescription<br><span></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>Fill out the details in the form displayed onto your screen and press submit<br><span></span></h4>
+                      </div>
+                      <div class="item">
+                        <h4>Our application will automatically remind you of when your medicines will expire<br><span></span></h4>
+                      </div>
+                    </div>
+                
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+                </div>      
+                
+            </div>
+        </div>
+    </div>
+</div>
+  
+	
 
 <!-- contact section -->
 <section id="contact">
